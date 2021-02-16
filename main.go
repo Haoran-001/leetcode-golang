@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"sort"
 )
 
 func main() {
@@ -32,4 +33,22 @@ func main() {
 	fmt.Println(checkPerfectNumber2(28))
 	fmt.Println(arrangeCoins(1))
 	fmt.Println(checkPerfectNumber3(8128))
+	fmt.Println("hello")
+	fmt.Println(getNoZeroIntegers(12))
+	fmt.Println(subtractProductAndSum2(13))
+	fmt.Println(isPowerOfTwo2(1024))
+	var num int32 = 1 << 30
+	fmt.Println(num)
+	fmt.Println(printNumbers(3))
+	fmt.Println(addDigits2(38))
+	fmt.Println(totalMoney2(20))
+	points3 := [][]int{{1, 2}, {1, 3}, {1, 4}}
+	fmt.Println(isBoomerang(points3))
+	arr4 := []int{3, 4, 2, 1}
+	sort.Ints(arr4)
+	fmt.Println(arr4)
+	rec1, rec2 := []int{0, 0, 1, 1}, []int{1, 0, 2, 1}
+	fmt.Println(isRectangleOverlap(rec1, rec2))
+	sort.Sort(sort.Reverse(sort.IntSlice(arr4)))
+	fmt.Println(arr4)
 }
