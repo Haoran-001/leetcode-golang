@@ -18,6 +18,15 @@ func min(x int, y int) int {
 	}
 }
 
+func power(x, y int) int {
+	var ans int = 1
+	for i := 1; i <= y; i++ {
+		ans = ans * x
+	}
+
+	return ans
+}
+
 func getMaxArrayElements(arr []int) int {
 	sort.Ints(arr)
 	return arr[len(arr)-1]

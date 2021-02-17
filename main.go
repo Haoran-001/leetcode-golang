@@ -51,4 +51,20 @@ func main() {
 	fmt.Println(isRectangleOverlap(rec1, rec2))
 	sort.Sort(sort.Reverse(sort.IntSlice(arr4)))
 	fmt.Println(arr4)
+
+	stu := []Student{
+		{Name: "haoran", Age: 24},
+		{Name: "xiaorong", Age: 27},
+		{Name: "mama", Age: 50},
+		{"papa", 49},
+	}
+
+	sort.Sort(StudentSlice(stu))
+	fmt.Println(stu)
+	sort.Sort(sort.Reverse(StudentSlice(stu)))
+	fmt.Println(stu)
+
+	fmt.Println(isPowerOfThree3(27))
+	fmt.Println(selfDividingNumbers(1, 22))
+	fmt.Println(maxCount2(3, 3, [][]int{{2, 2}, {3, 3}}))
 }
