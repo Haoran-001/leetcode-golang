@@ -67,4 +67,9 @@ func main() {
 	fmt.Println(isPowerOfThree3(27))
 	fmt.Println(selfDividingNumbers(1, 22))
 	fmt.Println(maxCount2(3, 3, [][]int{{2, 2}, {3, 3}}))
+
+	fmt.Println(-100 >> 31)
+	fmt.Println(maximum69Number(9669))
+
+	fmt.Println(numPrimeArrangements(100))
 }

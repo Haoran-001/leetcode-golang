@@ -36,3 +36,14 @@ func getMinArrayElements(arr []int) int {
 	sort.Ints(arr)
 	return arr[0]
 }
+
+func reverseString(s string) string {
+	strArr := []byte(s)
+	length := len(strArr)
+
+	for i := 0; i < length/2; i++ {
+		strArr[i], strArr[length-1-i] = strArr[length-1-i], strArr[i]
+	}
+
+	return string(strArr)
+}
