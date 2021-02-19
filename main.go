@@ -72,4 +72,6 @@ func main() {
 	fmt.Println(maximum69Number(9669))
 
 	fmt.Println(numPrimeArrangements(100))
+
+	fmt.Println(binaryGap(22))
 }

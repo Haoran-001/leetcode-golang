@@ -18,6 +18,14 @@ func min(x int, y int) int {
 	}
 }
 
+func abs(x int) int {
+	if x >= 0 {
+		return x
+	} else {
+		return -x
+	}
+}
+
 func power(x, y int) int {
 	var ans int = 1
 	for i := 1; i <= y; i++ {
@@ -46,4 +54,10 @@ func reverseString(s string) string {
 	}
 
 	return string(strArr)
+}
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
