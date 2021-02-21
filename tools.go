@@ -1,6 +1,11 @@
 package main
 
-import "sort"
+import (
+	"github.com/cheekybits/genny/generic"
+	_ "github.com/cheekybits/genny/generic"
+	"sort"
+	"sync"
+)
 
 func max(x int, y int) int {
 	if x >= y {
@@ -60,4 +65,77 @@ type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+type Item generic.Type
+
+type ItemStack struct {
+	items []Item
+	lock  sync.RWMutex
+}
+
+// 创建栈
+func (s *ItemStack) New() *ItemStack {
+	s.items = []Item{}
+	return s
+}
+
+// 入栈
+func (s *ItemStack) Push(t Item) {
+	s.lock.Lock()
+	s.items = append(s.items, t)
+	s.lock.Unlock()
+}
+
+// 出栈
+func (s *ItemStack) Pop() *Item {
+	s.lock.Lock()
+	item := s.items[len(s.items)-1]
+	s.lock.Unlock()
+	return &item
+}
+
+type ItemQueue struct {
+	items []Item
+	lock  sync.RWMutex
+}
+
+// 创建队列
+func (q *ItemQueue) New() *ItemQueue {
+	q.items = []Item{}
+	return q
+}
+
+// 入队列
+func (q *ItemQueue) Enqueue(t Item) {
+	q.lock.Lock()
+	q.items = append(q.items, t)
+	q.lock.Unlock()
+}
+
+// 出队列
+func (q *ItemQueue) Dequeue() *Item {
+	q.lock.Lock()
+	item := q.items[0]
+	q.items = q.items[1:len(q.items)]
+	q.lock.Unlock()
+	return &item
+}
+
+// 获取队列的第一个元素, 不移除
+func (q *ItemQueue) Front() *Item {
+	q.lock.Lock()
+	item := q.items[0]
+	q.lock.Unlock()
+	return &item
+}
+
+// 判空
+func (q *ItemQueue) IsEmpty() bool {
+	return len(q.items) == 0
+}
+
+// 获取队列的长度
+func (q *ItemQueue) Size() int {
+	return len(q.items)
 }
