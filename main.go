@@ -74,4 +74,56 @@ func main() {
 	fmt.Println(numPrimeArrangements(100))
 
 	fmt.Println(binaryGap(22))
+
+	node5 := Node{Val: 5, Children: nil}
+	node6 := Node{Val: 6, Children: nil}
+	node3 := Node{Val: 2, Children: nil}
+	node4 := Node{Val: 4, Children: nil}
+	var node2 Node = Node{Val: 3, Children: []*Node{&node5, &node6}}
+	var root Node = Node{Val: 1, Children: []*Node{&node2, &node3, &node4}}
+	fmt.Println(preorder(&root))
+
+	intStack := IntStack{}
+	intStack.Push(1)
+	intStack.Push(2)
+	intStack.Push(3)
+	fmt.Println(*intStack.Pop())
+	fmt.Println(*intStack.Pop())
+	fmt.Println(*intStack.Pop())
+
+	intQueue := IntQueue{}
+	intQueue.Enqueue(1)
+	intQueue.Enqueue(2)
+	intQueue.Enqueue(3)
+	fmt.Println("队列中一共有", intQueue.Size(), "个元素")
+	fmt.Println(*intQueue.Dequeue())
+	fmt.Println(*intQueue.Dequeue())
+	fmt.Println(*intQueue.Dequeue())
+
+	treenode1 := TreeNode{Val: 1}
+	treenode2 := TreeNode{Val: 2}
+	treenode3 := TreeNode{Val: 3}
+	treenode4 := TreeNode{Val: 4}
+	treenode1.Left = &treenode2
+	treenode1.Right = &treenode3
+	treenode2.Left = &treenode4
+	fmt.Println(isCousins2(&treenode1, 4, 3))
+
+	treenode5 := TreeNode{Val: 4}
+	treenode6 := TreeNode{Val: 2}
+	treenode7 := TreeNode{Val: 6}
+	treenode8 := TreeNode{Val: 1}
+	treenode9 := TreeNode{Val: 3}
+	treenode5.Left = &treenode6
+	treenode5.Right = &treenode7
+	treenode6.Left = &treenode8
+	treenode6.Right = &treenode9
+	fmt.Println(minDiffInBST(&treenode5))
+
+	treenode10 := TreeNode{Val: 1}
+	treenode11 := TreeNode{Val: 2}
+	fmt.Println(leafSimilar(&treenode10, &treenode11))
+
+	treenode12 := TreeNode{Val: 0}
+	fmt.Println(convertBiNode(&treenode12))
 }
